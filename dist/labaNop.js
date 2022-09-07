@@ -29,6 +29,7 @@ class Queue {
         return this._Array.length;
     }
     Merger() {
+        const timer = Date.now();
         while (this.Length() != 1) {
             const A1 = this.Shift();
             this._N_op += 1;
@@ -55,20 +56,19 @@ class Queue {
             this._N_op += 1;
             this.Push(retA.flat());
         }
-        this._T_lim = performance.now();
+        this._T_lim = Number((Date.now() - timer).toFixed(3));
     }
 }
-for (let i = 60; i < 6061; i += 60) {
-    let Quantity = i;
-    let queue = new Queue(Quantity);
-    for (let i = 0; i < Quantity; i++)
-        queue.Push([Math.random()]);
-    queue.Merger();
-    console.log('Сортировка №' + i / 60);
-    console.log('F(n)= ' + queue._F_lim);
-    console.log('O(F(n))= ' + queue._O_F_lim);
-    console.log('T(n)= ' + queue._T_lim);
-    console.log('N_op= ' + queue._N_op);
-    console.log();
-}
+let Quantity = 300;
+let queue = new Queue(Quantity);
+for (let i = 0; i < Quantity; i++)
+    queue.Push([Math.random()]);
+queue.Merger();
+console.log('Сортировка №' + Quantity / 300);
+console.log('F(n)= ' + queue._F_lim);
+console.log('O(F(n))= ' + queue._O_F_lim);
+console.log('T(n)= ' + queue._T_lim);
+console.log('N_op= ' + queue._N_op);
+console.log();
+console.log();
 //# sourceMappingURL=labaNop.js.map

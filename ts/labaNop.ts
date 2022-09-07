@@ -8,7 +8,7 @@ class Queue {
     constructor(quantity: number) {
         this._Array = []
         this._F_lim = Math.floor(1+( 11+Math.log2(quantity)*16)*(quantity-1))
-        this._O_F_lim = Math.floor(Math.log2(quantity)*quantity) //*=7.599 => 1
+        this._O_F_lim = Math.floor(Math.log2(quantity)*quantity) // *=8,62 => 1
         this._T_lim = 0
         this._N_op = 0
     }
@@ -29,6 +29,7 @@ class Queue {
         return this._Array.length
     }
     Merger() {
+        const timer = Date.now()
         while (this.Length() != 1){
 
             const A1 = this.Shift()
@@ -63,28 +64,29 @@ class Queue {
 
             this._N_op+=1
             this.Push( retA.flat())
-        }
-        this._T_lim = performance.now()
+        } 
+        this._T_lim = Number((Date.now()-timer).toFixed(3))
     }
 }
 
-for (let i = 60; i < 6061; i+=60) {
-    let Quantity = i
+//for (let i = 300; i < 9001; i+=300) {
+    let Quantity = 300//i
     let queue = new Queue(Quantity)
 
     for (let i = 0; i < Quantity; i++)
         queue.Push([Math.random()])  
 
     queue.Merger()
-    console.log('Сортировка №' +i/60)
+    console.log('Сортировка №' + Quantity/300)
     console.log('F(n)= ' +queue._F_lim)
     console.log('O(F(n))= ' +queue._O_F_lim)
     console.log('T(n)= ' +queue._T_lim)
     console.log('N_op= ' +queue._N_op)
+    console.log()
     //console.log(queue)
     // console.log("C1 = " + queue._F_lim / queue._T_lim)
     // console.log("C2 = " + queue._O_F_lim / queue._T_lim)
     // console.log("C3 = " + queue._F_lim / queue._N_op)
     // console.log("C4 = " + queue._O_F_lim / queue._N_op)
     console.log()
-}
+//}
