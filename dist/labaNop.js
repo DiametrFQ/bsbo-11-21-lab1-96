@@ -40,15 +40,15 @@ class Queue {
             this._N_op += 1;
             for (let i = 0; i < limit; i++) {
                 if (A1.length > 0 && A2.length > 0) {
-                    this._N_op += 7;
+                    this._N_op += 8;
                     A1 > A2 ? retA.push(A2.shift()) : retA.push(A1.shift());
                 }
                 else if (A2.length === 0) {
-                    this._N_op += 3;
+                    this._N_op += 4;
                     retA.push(A1.shift());
                 }
                 else if (A1.length === 0) {
-                    this._N_op += 3;
+                    this._N_op += 4;
                     retA.push(A2.shift());
                 }
             }
@@ -64,11 +64,11 @@ for (let i = 60; i < 6061; i += 60) {
     for (let i = 0; i < Quantity; i++)
         queue.Push([Math.random()]);
     queue.Merger();
-    console.log("C1 = " + queue._F_lim / queue._T_lim);
-    console.log("C2 = " + queue._O_F_lim / queue._T_lim);
-    console.log("C3 = " + queue._F_lim / queue._N_op);
-    console.log("C4 = " + queue._O_F_lim / queue._N_op);
-    console.log("OP = " + 1 / (queue._O_F_lim / queue._N_op));
+    console.log('Сортировка №' + i / 60);
+    console.log('F(n)= ' + queue._F_lim);
+    console.log('O(F(n))= ' + queue._O_F_lim);
+    console.log('T(n)= ' + queue._T_lim);
+    console.log('N_op= ' + queue._N_op);
     console.log();
 }
 //# sourceMappingURL=labaNop.js.map
