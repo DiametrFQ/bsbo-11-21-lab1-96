@@ -25,6 +25,7 @@
 //         return this._Array.length
 //     }
 //     Merger() {
+//         const timer = Date.now()
 //         while (this.Length() != 1){ //2 + Σ
 
 //             const A1 = this.Shift()//2
@@ -51,27 +52,28 @@
 //             }
 //             this.Push( retA.flat())//2
 //         }
-//         this._T_lim = performance.now()
+//         this._T_lim = Number((Date.now()-timer).toFixed(3))
 //     }
 // }
 
-// for (let i = 60; i < 660; i+=60) {
-//     let Quantity = i
+// //for (let i = 300; i < 9001; i+=300) {
+//     let Quantity = 300//i
 //     let queue = new Queue(Quantity)
 
 //     for (let i = 0; i < Quantity; i++)
 //         queue.Push([Math.random()])  
 
 //     queue.Merger()
-//     console.log('Сортировка №' +i/60)
+//     console.log('Сортировка №' + Quantity/300)
 //     console.log('F(n)= ' +queue._F_lim)
 //     console.log('O(F(n))= ' +queue._O_F_lim)
 //     console.log('T(n)= ' +queue._T_lim)
 //     console.log('N_op= ' +queue._N_op)
 //     console.log()
+//     //console.log(queue)
 //     // console.log("C1 = " + queue._F_lim / queue._T_lim)
 //     // console.log("C2 = " + queue._O_F_lim / queue._T_lim)
 //     // console.log("C3 = " + queue._F_lim / queue._N_op)
 //     // console.log("C4 = " + queue._O_F_lim / queue._N_op)
-//     // console.log()
-// }
+//     console.log()
+// //}
