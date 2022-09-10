@@ -5,5 +5,5 @@
 2. Enter in the directory of the downloaded file:
 
 ```
-node dist/labeNop
+node dist/labaNop
 ```
